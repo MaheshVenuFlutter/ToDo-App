@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:to_do_getx/app/modules/home/views.dart';
+import 'package:get/get.dart';
 
-void main() {
+import 'package:to_do_getx/app/modules/home/views.dart';
+import 'package:get_storage/get_storage.dart';
+
+import 'app/data/services/storage/services.dart';
+
+void main() async {
+  await GetStorage.init();
+  await Get.putAsync(() => StorageService().init());
   runApp(const MyApp());
 }
 
